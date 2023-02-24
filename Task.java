@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Task {
     public static void main(String[] args) {
@@ -23,11 +23,20 @@ public class Task {
         telBook.put(logins.get(0), ivan);
         telBook.put(logins.get(1), victor);
         telBook.put(logins.get(2), alex);
+        System.out.println("\n" + telBook + "\n");
 
-        // function.AddPerson(telBook);
-        // function.AddTelephone(telBook);
-        function.DelTelephone(telBook);
-        
+        int num = 1;
+        Scanner iScanner = new Scanner(System.in);
+        while (num >= 1 && num <= 5) {
+            System.out.printf(function.Menu());
+            num = iScanner.nextInt();
+            if (num == 1) function.AddPerson(telBook);
+            else if (num == 2) function.DelPersone(telBook);
+            else if (num == 3) function.AddTelephone(telBook);
+            else if (num == 4) function.DelTelephone(telBook);
+            else if (num == 5) function.FindTel(telBook);
+        }
+        iScanner.close();
         System.out.println(telBook);
     }
 }
