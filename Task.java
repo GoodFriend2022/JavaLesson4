@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Task {
@@ -23,6 +24,10 @@ public class Task {
         telBook.put(logins.get(1), victor);
         telBook.put(logins.get(2), alex);
 
+        // function.AddPerson(telBook);
+        // function.AddTelephone(telBook);
+        function.DelTelephone(telBook);
         
+        System.out.println(telBook);
     }
 }
