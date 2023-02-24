@@ -10,12 +10,11 @@ public class function {
         String name = iScanner.nextLine().toLowerCase();
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         while (true) {
-            System.out.printf("Для продолжения нажмите Enter\nВведите номер телефона абонента >>>\n");
+            System.out.printf("\nВведите номер телефона абонента\nДля выхода нажмите Enter >>>\n");
             String tel = iScanner.nextLine();
             if (tel == "") break;
             telPerson.add(tel);
         }
-        iScanner.close();
         telBook.put(name, telPerson);
     }
 
@@ -26,11 +25,9 @@ public class function {
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         if (!telBook.containsKey(name)) {
             System.out.println("Такого абонента нет в справочнике");
-            iScanner.close();
             return;
         }
         telBook.remove(name);
-        iScanner.close();
     }
 
     static void AddTelephone(HashMap<String, HashSet<String>> telBook) {
@@ -40,13 +37,11 @@ public class function {
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         if (!telBook.containsKey(name)) {
             System.out.println("Такого абонента нет в справочнике");
-            iScanner.close();
             return;
         }
         System.out.printf("Введите номер телефона абонента >>>\n");
         String tel = iScanner.nextLine();
         telBook.get(name).add(tel);
-        iScanner.close();
     }
 
     static void DelTelephone(HashMap<String, HashSet<String>> telBook) {
@@ -56,10 +51,9 @@ public class function {
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         if (!telBook.containsKey(name)) {
             System.out.println("Такого абонента нет в справочнике");
-            iScanner.close();
             return;
         }
-        System.out.printf("Выберите порядковый номер телефона, который хотите удальть >>>\n");
+        System.out.printf("Выберите порядковый номер телефона, который хотите удалить >>>\n");
         System.out.println(telBook.get(name));
         int number = iScanner.nextInt();
         int count = 1;
@@ -67,7 +61,6 @@ public class function {
             if (count == number) telBook.get(name).remove(item);
             count++;
         }
-        iScanner.close();
     }
 
     static void FindTel(HashMap<String, HashSet<String>> telBook) {
@@ -77,11 +70,9 @@ public class function {
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
         if (!telBook.containsKey(name)) {
             System.out.println("Такого абонента нет в справочнике");
-            iScanner.close();
             return;
         }
         System.out.println("Этот абонент использует телефоны:\n" + telBook.get(name));
-        iScanner.close();
     }
 
     static String Menu() {
@@ -90,6 +81,7 @@ public class function {
         "3 Добавить номер телефона к контакту\n" + 
         "4 Удалить номер телефона контакта\n" +
         "5 Показать номера телефонов контакта\n" +
-        "6 Выйти\n";
+        "6 Выйти\n" +
+        "Выберите номер меню >>>\n";
     }
 }

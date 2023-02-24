@@ -28,15 +28,15 @@ public class Task {
         int num = 1;
         Scanner iScanner = new Scanner(System.in);
         while (num >= 1 && num <= 5) {
-            System.out.printf(function.Menu());
+            System.out.println(function.Menu());
             num = iScanner.nextInt();
             if (num == 1) function.AddPerson(telBook);
             else if (num == 2) function.DelPersone(telBook);
             else if (num == 3) function.AddTelephone(telBook);
             else if (num == 4) function.DelTelephone(telBook);
             else if (num == 5) function.FindTel(telBook);
+            System.out.println(telBook);
         }
         iScanner.close();
-        System.out.println(telBook);
     }
 }
